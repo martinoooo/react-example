@@ -1,15 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Item from './components/Item';
 import Repeat from './components/Repeat';
 import Refs from './components/Refs';
 import FileInput from './components/FileInput';
+import Fragments from './components/Fragments'
 import './App.css';
 
 const components = {
   item: Item
 };
 
-class App extends PureComponent {
+class App extends Component {
   // 1.Mounting
 
   // The constructor is called before it is mounted
@@ -121,6 +122,8 @@ class App extends PureComponent {
             <SpecificItem message={message}/>
             <components.item message={message}/>
             {todos.map((t) => <Item key={t} message={t} />)}
+
+            <Fragments message={message}/>
           </ul>
           <Repeat numTimes={10}>
             {(index) => <div key={index}>This is item {index} in the list</div>}
