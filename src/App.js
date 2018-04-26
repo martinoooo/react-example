@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from './components/Item';
 import Repeat from './components/Repeat';
+import Refs from './components/Refs';
 import './App.css';
 
 const components = {
@@ -124,9 +125,9 @@ class App extends Component {
             {(index) => <div key={index}>This is item {index} in the list</div>}
           </Repeat>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-intro">
+          <Refs/>
+        </div>
       </div>
     );
   }
