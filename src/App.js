@@ -114,6 +114,7 @@ class App extends Component {
           <ul>
             <li className="App-title">{message}</li>
             {/*使用组件的几种形式*/}
+            <Item/>
             <Item message={message}/>
             <SpecificItem message={message}/>
             <components.item message={message}/>
