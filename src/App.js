@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Item from './components/Item';
 import Repeat from './components/Repeat';
 import Refs from './components/Refs';
+import FileInput from './components/FileInput';
 import './App.css';
 
 const components = {
@@ -127,6 +128,7 @@ class App extends Component {
         </header>
         <div className="App-intro">
           <Refs/>
+          <FileInput />
         </div>
       </div>
     );
