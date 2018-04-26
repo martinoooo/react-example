@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Item from './components/Item';
 import Repeat from './components/Repeat';
 import Refs from './components/Refs';
@@ -9,7 +9,7 @@ const components = {
   item: Item
 };
 
-class App extends Component {
+class App extends PureComponent {
   // 1.Mounting
 
   // The constructor is called before it is mounted
