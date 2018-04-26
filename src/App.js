@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Item from './components/Item';
+import Repeat from './components/Repeat';
 import './App.css';
+
+const components = {
+  item: Item
+};
 
 class App extends Component {
   // 1.Mounting
@@ -59,6 +64,7 @@ class App extends Component {
   }
 
   /**
+   * componentDidUpdate。
    * 使用此作为发生更新之前做一些准备的机会
    * 不能call this.setState() 或 dispatch a Redux action
    * 它会在UNSAFE_componentWillUpdate()返回之前触发一个React组件的更新。
@@ -99,11 +105,23 @@ class App extends Component {
   // render() method is required.
   render() {
     const { message } = this.state;
+    let type = 'item';
+    const SpecificItem = components[type];
+    const todos = ['finish doc', 'submit pr', 'nag dan to review'];
     return (
       <div className="App">
         <header className="App-header">
-          {/*<img src={logo} className="App-logo" alt="logo" />*/}
-          <h1 className="App-title">{message}</h1>
+          <ul>
+            <li className="App-title">{message}</li>
+            {/*使用组件的几种形式*/}
+            <Item message={message}/>
+            <SpecificItem message={message}/>
+            <components.item message={message}/>
+            {todos.map((t) => <Item key={t} message={t} />)}
+          </ul>
+          <Repeat numTimes={10}>
+            {(index) => <div key={index}>This is item {index} in the list</div>}
+          </Repeat>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
